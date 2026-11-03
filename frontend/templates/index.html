@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAG Retrieval</title>
+  <link rel="stylesheet" href="/static/css/style.css?v=6" />
+</head>
+<body>
+  <div class="app">
+    <header class="site-header">
+      <div class="brand">
+        <h1>RAG Retrieval</h1>
+      </div>
+      <div class="header-status">
+        <div id="user-id-display" class="user-id-display" title="Session User ID"></div>
+        <div id="health" class="health">Checking…</div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar panel">
+        <section class="sidebar-section">
+          <h2>Index documents</h2>
+          <p class="hint">PDF, TXT, or Markdown</p>
+          <label class="upload-box" for="file-input">
+            <input type="file" id="file-input" accept=".pdf,.txt,.md,application/pdf,text/plain,text/markdown" />
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <span id="upload-label">Drop a file or click to browse</span>
+          </label>
+          <button type="button" id="upload-btn" class="btn primary">Upload &amp; index</button>
+          <div id="upload-status" class="status"></div>
+        </section>
+
+        <section class="sidebar-section doc-section">
+          <div class="doc-section-header">
+            <h2>Indexed documents</h2>
+            <span id="doc-count" class="doc-count" hidden>0</span>
+          </div>
+          <p class="hint">Check documents to scope search. None selected = search all.</p>
+          <div id="doc-list" class="doc-list">
+            <p class="doc-empty">No documents indexed yet.</p>
+          </div>
+        </section>
+      </aside>
+
+      <section class="main panel">
+        <form id="query-form" class="query-form">
+          <label for="query-input" class="query-label">Query</label>
+          <div class="query-bar">
+            <input
+              type="text"
+              id="query-input"
+              placeholder="e.g. What is the refund policy?"
+              autocomplete="off"
+              required
+            />
+            <button type="submit" class="btn primary" id="search-btn">Retrieve &amp; answer</button>
+          </div>
+        </form>
+
+        <div id="results" class="results">
+          <div class="empty-state">
+            <p class="empty-title">Ready to retrieve</p>
+            <p class="empty-desc">Upload documents, then run a query to see retrieved chunks and a grounded answer.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/js/app.js?v=8"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Runtime logs
+logs/
+*.log
+
+# Data & caches
+data/
+chroma_db/
+models/
+.venv/
+__pycache__/
+.env
+venv/
+docs/
+docker-compose.yml
+.DS_Store
